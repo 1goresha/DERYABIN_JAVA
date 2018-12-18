@@ -38,16 +38,6 @@ class Task03 {
 		System.out.println(b+"   |");
 		a = a / 2;
 
-		b = a % 2;
-		System.out.println(b+"   |");
-		a = a / 2;
-
-		b = a % 2;
-		System.out.println(b+"   |");
-		a = a / 2;
-
-		b = a % 2;
-		System.out.println(b+"   |");
-		a = a / 2;
+		
 	}
 }
