@@ -1,6 +1,25 @@
 package com.company;
 
 public class Main {
+    public static int getMaxOfArray(int[] arr){
+        int max = arr[0];
+        for(int i = 0; i<arr.length;i++){
+            if (arr[i] > max){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
+    public static int getMinOfArray(int arr[]){
+        int min = arr[0];
+        for (int i = 0;i<arr.length;i++){
+            if (arr[i] < min){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
 
     public static void main(String[] args) {
         // write your code here
@@ -17,8 +36,10 @@ public class Main {
                 min = array[i];
             }
         }
-        System.out.println("min = " + min);
-        System.out.println("max = " + max);
+
+
+        System.out.println(getMaxOfArray(array));
+        System.out.println(getMinOfArray(array));
 
     }
 }
