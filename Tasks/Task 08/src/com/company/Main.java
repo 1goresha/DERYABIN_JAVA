@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Main {
 
     public static int[] parseMassive(int arr[]){
-        int max;
+        int temp;
         for (int j = 0; j < arr.length; j++) {
             for (int i = j + 1; i < arr.length; i++) {
-                if (arr[j] > arr[i]) {
-                    max = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = max;
+                if (arr[i] < arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
                 }
             }
         }
