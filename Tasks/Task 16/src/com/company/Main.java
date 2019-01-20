@@ -14,7 +14,7 @@ public class Main {
         list.print();
         list.reverse();
         list.print();
-        System.out.println(list.getCountNum());
+        System.out.println(list.getCount());
         list.sort();
         list.print();
         System.out.println(list.contains(77));

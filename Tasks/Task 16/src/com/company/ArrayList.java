@@ -4,9 +4,7 @@ package com.company;
 import com.sun.istack.internal.NotNull;
 
 public class ArrayList {
-    public int array[];
-    public int num;
-    public int index;
+    private int array[];
 
     public ArrayList(int arr[]) {
         this.array = arr;
@@ -18,7 +16,7 @@ public class ArrayList {
 ////        }
 ////    }
 
-    public int getPosFirstNum() {//функция ищет позицию первого ненуля
+    private int getPosFirstNum() {//функция ищет позицию первого ненуля
         int posFirstNum = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != 0) {
@@ -29,7 +27,7 @@ public class ArrayList {
         return posFirstNum;
     }
 
-    public int getCountNum() {//функция ищет кол-во ненулей
+    private int getCountNum() {//функция ищет кол-во ненулей
         int countNum = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != 0) {
@@ -47,7 +45,6 @@ public class ArrayList {
     }
 
     public void add(int num) {
-        this.num = num;
         int posFirstNum = getPosFirstNum();
         int countNum = getCountNum();
         int posLastNum = posFirstNum + countNum - 1;
@@ -66,7 +63,6 @@ public class ArrayList {
     }
 
     public void addToBeginning(int num) {
-        this.num = num;
         int posFirstNum = getPosFirstNum();
         int countNum = getCountNum();
         int posLastNum = posFirstNum + countNum - 1;
@@ -101,8 +97,6 @@ public class ArrayList {
         int posFirstNum = getPosFirstNum();
         int countNum = getCountNum();
         int posLastNum = posFirstNum + countNum - 1;
-        this.num = num;
-        this.index = index;
         if (countNum >= array.length) {
             System.out.println("Error of operation insertElementByIndex! Array is full");
             return;
@@ -177,5 +171,15 @@ public class ArrayList {
             return array[index];
         }
         return -1;
+    }
+
+    public int getCount() {//функция ищет кол-во ненулей
+        int countNum = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != 0) {
+                countNum++;
+            }
+        }
+        return countNum;
     }
 }
