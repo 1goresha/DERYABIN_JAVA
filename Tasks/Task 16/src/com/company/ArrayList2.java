@@ -1,36 +1,23 @@
 package com.company;
 
 
-import com.sun.istack.internal.NotNull;
+public class ArrayList2 {
 
-public class ArrayList {
 
-    public int array[];
-    public int num;
-    public int index;
 
-    public ArrayList(int arr[]){
-        this.array = arr;
-    }
-//    public ArrayList(){
-//        this.array = new int[4];
-//        for (int i =0; i < array.length; i++){
-//            array[i] = i+1;
-//        }
-//    }
-
-    public int getPosFirstNum() {//функция ищет позицию первого ненуля
+    public static int getPosFirstNum(int array[]) {//функция ищет позицию первого ненуля
         int posFirstNum = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != 0) {
                 posFirstNum = i;
                 return posFirstNum;
             }
+
         }
         return posFirstNum;
     }
 
-    public int getCountNum() {//функция ищет кол-во ненулей
+    public static int getCountNum(int array[]) {//функция ищет кол-во ненулей
         int countNum = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != 0) {
@@ -40,17 +27,16 @@ public class ArrayList {
         return countNum;
     }
 
-    public void print() {//процедура выводит элементы массива... для удобства
+    public static void print(int array[]) {//процедура выводит элементы массива... для удобства
         for (int j = 0; j < array.length; j++) {
             System.out.print(array[j] + " , ");
         }
         System.out.println();
     }
 
-    public void add(int num) {
-        this.num = num;
-        int posFirstNum = getPosFirstNum();
-        int countNum = getCountNum();
+    public static void add(int array[], int num) {
+        int posFirstNum = getPosFirstNum(array);
+        int countNum = getCountNum(array);
         int posLastNum = posFirstNum + countNum -1;
         if (countNum >= array.length) {
             System.out.println("Error of operation add! Array is full");
@@ -66,10 +52,9 @@ public class ArrayList {
         }
     }
 
-    public void addToBeginning(int num) {
-        this.num = num;
-        int posFirstNum = getPosFirstNum();
-        int countNum = getCountNum();
+    public static void addToBeginning(int array[], int num) {
+        int posFirstNum = getPosFirstNum(array);
+        int countNum = getCountNum(array);
         int posLastNum = posFirstNum + countNum -1;
         if (countNum >= array.length) {
             System.out.println("Error of operation addToBeginning! Array is full");
@@ -85,10 +70,10 @@ public class ArrayList {
         }
     }
 
-    public void deleteElementByIndex(int index) {
-        int posFirstNum = getPosFirstNum();
-        int countNum = getCountNum();
-        int posLastNum = posFirstNum + countNum -1;
+    public static void deleteElementByIndex(int array[], int index) {
+        int posFirstNum = getPosFirstNum(array);
+        int countNum = getCountNum(array);
+        int posLastNum = posFirstNum + countNum - 1;
         for (int i = posFirstNum, j = 0; i < posLastNum && j <= posLastNum - index; i++, j++) {
             if (index == posFirstNum || index == posLastNum) {
                 array[index] = 0;
@@ -98,12 +83,10 @@ public class ArrayList {
         }
     }
 
-    public void insertElementByIndex(int num, int index) {
-        int posFirstNum = getPosFirstNum();
-        int countNum = getCountNum();
-        int posLastNum = posFirstNum + countNum -1;
-        this.num = num;
-        this.index = index;
+    public static void insertElementByIndex(int array[], int num, int index) {
+        int posFirstNum = getPosFirstNum(array);
+        int countNum = getCountNum(array);
+        int posLastNum = posFirstNum + countNum - 1;
         if (countNum >= array.length) {
             System.out.println("Error of operation insertElementByIndex! Array is full");
             return;
