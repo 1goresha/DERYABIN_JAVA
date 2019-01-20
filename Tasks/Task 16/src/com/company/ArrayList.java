@@ -4,7 +4,6 @@ package com.company;
 import com.sun.istack.internal.NotNull;
 
 public class ArrayList {
-
     public int array[];
     public int num;
     public int index;
@@ -47,7 +46,7 @@ public class ArrayList {
         System.out.println();
     }
 
-    public void add(int num) {
+    public  void add(int num) {
         this.num = num;
         int posFirstNum = getPosFirstNum();
         int countNum = getCountNum();
