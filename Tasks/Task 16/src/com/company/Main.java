@@ -19,5 +19,6 @@ public class Main {
         list.print();
         System.out.println(list.contains(77));
         System.out.println(list.indexOf(6));
+        System.out.println(list.get(5));
     }
 }

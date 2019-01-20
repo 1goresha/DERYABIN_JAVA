@@ -168,4 +168,14 @@ public class ArrayList {
         }
         return -1;
     }
+
+    public int get(int index) {
+        int posFirstNum = getPosFirstNum();
+        int countNum = getCountNum();
+        int posLastNum = posFirstNum + countNum - 1;
+        if (index <= posLastNum && index >= posFirstNum) {
+            return array[index];
+        }
+        return -1;
+    }
 }
