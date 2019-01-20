@@ -8,15 +8,15 @@ public class ArrayList {
     public int num;
     public int index;
 
-    public ArrayList(int arr[]){
+    public ArrayList(int arr[]) {
         this.array = arr;
     }
 //    public ArrayList(){
-//        this.array = new int[4];
-//        for (int i =0; i < array.length; i++){
-//            array[i] = i+1;
-//        }
-//    }
+////        this.array = new int[4];
+////        for (int i =0; i < array.length; i++){
+////            array[i] = i+1;
+////        }
+////    }
 
     public int getPosFirstNum() {//функция ищет позицию первого ненуля
         int posFirstNum = 0;
@@ -46,20 +46,20 @@ public class ArrayList {
         System.out.println();
     }
 
-    public  void add(int num) {
+    public void add(int num) {
         this.num = num;
         int posFirstNum = getPosFirstNum();
         int countNum = getCountNum();
-        int posLastNum = posFirstNum + countNum -1;
+        int posLastNum = posFirstNum + countNum - 1;
         if (countNum >= array.length) {
             System.out.println("Error of operation add! Array is full");
             return;
         }
         for (int i = posFirstNum; i <= posLastNum; i++) {
-            if (posLastNum < array.length-1){
-                array[posLastNum+1] = num;
-            }else if (posLastNum == array.length-1){
-                array[i-1] = array[i];
+            if (posLastNum < array.length - 1) {
+                array[posLastNum + 1] = num;
+            } else if (posLastNum == array.length - 1) {
+                array[i - 1] = array[i];
                 array[posLastNum] = num;
             }
         }
@@ -69,7 +69,7 @@ public class ArrayList {
         this.num = num;
         int posFirstNum = getPosFirstNum();
         int countNum = getCountNum();
-        int posLastNum = posFirstNum + countNum -1;
+        int posLastNum = posFirstNum + countNum - 1;
         if (countNum >= array.length) {
             System.out.println("Error of operation addToBeginning! Array is full");
             return;
@@ -87,7 +87,7 @@ public class ArrayList {
     public void deleteElementByIndex(int index) {
         int posFirstNum = getPosFirstNum();
         int countNum = getCountNum();
-        int posLastNum = posFirstNum + countNum -1;
+        int posLastNum = posFirstNum + countNum - 1;
         for (int i = posFirstNum, j = 0; i < posLastNum && j <= posLastNum - index; i++, j++) {
             if (index == posFirstNum || index == posLastNum) {
                 array[index] = 0;
@@ -100,23 +100,72 @@ public class ArrayList {
     public void insertElementByIndex(int num, int index) {
         int posFirstNum = getPosFirstNum();
         int countNum = getCountNum();
-        int posLastNum = posFirstNum + countNum -1;
+        int posLastNum = posFirstNum + countNum - 1;
         this.num = num;
         this.index = index;
         if (countNum >= array.length) {
             System.out.println("Error of operation insertElementByIndex! Array is full");
             return;
         }
-        for (int i = posFirstNum, j = posLastNum; i <= index && j >=index; ) {
-            if (posLastNum < array.length-1) {
+        for (int i = posFirstNum, j = posLastNum; i <= index && j >= index; ) {
+            if (posLastNum < array.length - 1) {
                 array[j + 1] = array[j];
                 j--;
-            } else if(posLastNum == array.length-1) {
+            } else if (posLastNum == array.length - 1) {
                 array[i - 1] = array[i];
                 array[i] = num;
                 i++;
             }
         }
         array[index] = num;
+    }
+
+    public void reverse() {
+        int temp;
+        for (int i = 0; i < array.length / 2; i++) {
+            temp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp;
+        }
+    }
+
+    public void sort() {
+        int posFirstNum = getPosFirstNum();
+        int countNum = getCountNum();
+        int posLastNum = posFirstNum + countNum - 1;
+        int temp = array[0];
+        for (int i = posFirstNum; i <= posLastNum; i++) {
+            for (int j = i + 1; j <= posLastNum; j++) {
+                if (array[i] > array[j]) {
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+
+    public boolean contains(int num) {
+        int posFirstNum = getPosFirstNum();
+        int countNum = getCountNum();
+        int posLastNum = posFirstNum + countNum - 1;
+        for (int i = posFirstNum; i <= posLastNum; i++){
+            if (array[i] == num){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int indexOf(int num) {
+        int posFirstNum = getPosFirstNum();
+        int countNum = getCountNum();
+        int posLastNum = posFirstNum + countNum - 1;
+        for (int i = posFirstNum; i <= posLastNum; i++){
+            if (array[i] == num){
+                return i;
+            }
+        }
+        return -1;
     }
 }
