@@ -9,14 +9,21 @@ public class Tv {
     private final int CHANNEL_COUNT = 5;
     private Random random;
     private Scanner scanner;
-    public Tv(){
+    public Tv(){                                        //OVERLOAD
         this.currentCount = 0;
         this.channels = new Channel[CHANNEL_COUNT];
         this.scanner = new Scanner(System.in);
         this.random = new Random();
     }
 
-    void addChannels(Channel channel){
+    public Tv(Channel[] channels){                     //OVERLOAD
+        this.currentCount = channels.length;
+        this.channels = channels;
+        this.scanner = new Scanner(System.in);
+        this.random = new Random();
+    }
+
+    void addChannels(Channel channel){                //используется для решения задачи другим способом
         if (currentCount < CHANNEL_COUNT){
             this.channels[currentCount] = channel;
             currentCount++;
