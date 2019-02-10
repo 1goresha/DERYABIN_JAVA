@@ -12,20 +12,18 @@ public class LinkedIntegerList implements IntegerList {
 
     private Node getNodeByIndex(int index) {
         Node node = top;
-        for (int i = 0; i < count; i++) {
-            if (i == index) {
+        for (int i = 0; i <= count; i++) {
+            if (index == i) {
                 return node;
             }
             node = node.getNext();
         }
-
         return node;
     }
 
     @Override
     public void addToBegin(int value) {
         Node node = new Node(value);
-
         if (top == null) {
             tail = node;
         }
@@ -37,7 +35,6 @@ public class LinkedIntegerList implements IntegerList {
     @Override
     public void add(int value) {
         Node node = new Node(value);
-
         if (top == null) {
             top = node;
             tail = top;
@@ -112,6 +109,46 @@ public class LinkedIntegerList implements IntegerList {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean contains(int element) {
+        for (int i=0;i<=count;i++){
+            if (getNodeByIndex(i).getValue()== element){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int indexOf(int element) {
+        for (int i =0;i<=count;i++){
+            if (getNodeByIndex(i).getValue() == element){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public void remove(int index) {
+        if (index == 0){
+            top = top.getNext();
+            count--;
+            return;
+        }else if (index == count){
+            getNodeByIndex(index-1).setNext(null);
+            tail = getNodeByIndex(index - 1);
+            count--;
+            return;
+        }
+        Node current = getNodeByIndex(index);
+        Node previousNode = getNodeByIndex(index -1);
+        Node nextNode = getNodeByIndex(index + 1);
+        previousNode.setNext(nextNode);
+        current.setNext(null);
+        count--;
     }
 
 

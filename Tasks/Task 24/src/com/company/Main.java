@@ -36,7 +36,11 @@ public class Main {
 	list.insert(999,6);
 
 		list.reverse();
-		list.sort();
+//		list.sort();
+		System.out.println(list.contains(4));
+		System.out.println(list.indexOf(4));
+		list.remove(0);
+		list.remove(9);
 		int i = 0;
 	}
 }

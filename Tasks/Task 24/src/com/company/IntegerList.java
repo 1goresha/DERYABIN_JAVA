@@ -8,4 +8,7 @@ public interface IntegerList {
     void reverse();
     int getCount();
     void sort();
+    boolean contains(int element);
+    int indexOf(int element);
+    void remove(int index);
 }
