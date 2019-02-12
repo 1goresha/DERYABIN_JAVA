@@ -26,7 +26,8 @@ public class Main {
 //        tv.addChannels(channel1);               //используется для решения задачи другим способом
 //        tv.addChannels(channel2);               //используется для решения задачи другим способом
         RemoteController remoteController = new RemoteController(tv);
-        remoteController.pressButton();
 
+        remoteController.pressButton();
+         int i =0;
     }
 }

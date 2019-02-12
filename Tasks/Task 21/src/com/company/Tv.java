@@ -33,6 +33,10 @@ public class Tv {
     void control(){
         System.out.println("Press button ");
         int temp = this.scanner.nextInt();
+        if (temp > currentCount || temp < 0){
+            System.out.println("Error!");
+            return;
+        }
         if (channels[temp] != null && temp < currentCount && temp >=0){
             channels[temp].showChannel();
         } else System.out.println("<<<<<<<<<<<<PROPHYLAXIS>>>>>>>>>>>>");
